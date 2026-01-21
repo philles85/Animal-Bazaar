@@ -1,0 +1,49 @@
+main {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--XXL-spacing);
+    align-items: center;
+}
+
+#pick_animal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--XXL-spacing);
+    width: 100%;
+}
+
+#pick_animal div {
+    display: flex;
+    gap: calc(var(--XXL-spacing) * 5);
+}
+
+#pick_animal div div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--S-spacing);
+    cursor: pointer;
+}
+
+#pick_animal div div img {
+    width: 150px;
+}
+
+#pick_animal div div p {
+    margin: 0;
+}
+
+
+#search_animal input {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid black;
+}

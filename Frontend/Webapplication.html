@@ -16,7 +16,7 @@
     <header>
         <nav id="navigation_container">
             <div class="navigation_button_container" id="navigation_button_container_left">
-               <img id="navigation_logo" src="Images/AnimalBazaarLogo.png" alt="Animal Bazaar Logo">
+                <img id="navigation_logo" src="Images/AnimalBazaarLogo.png" alt="Animal Bazaar Logo">
                 <button id="find_a_pet_button">FIND A PET <img class="arrow_down_svg" src="Images/arrow-down.svg" alt=""></button>
                 <button id="all_about_pets_button">ALL ABOUT PETS <img class="arrow_down_svg" src="Images/arrow-down.svg" alt=""></button>
             </div>
@@ -26,7 +26,8 @@
             </div>
         </nav>
     </header>
-
+    <div id="homepage">
+    
     <div class="popup" id="register_container_popup">
         <div>
             <p>Get Started</p>
@@ -53,40 +54,62 @@
         <div><button id="create_account_button">Create Account</button></div>
     </div>
 
-    <main></main>
-    <footer>
-        <div id="media_logos"></div>
-        <div id="footer_info">
-            <div>
-                <h3>About us</h3>
-                <p>Contact us</p>
-                <p>See our story</p>
-                <p>Rate us</p>
-                <p>Buy from us</p>
+    <main>
+            <div id="search_animal">
+                <input type="text" placeholder="Search dog, cats etc.">
             </div>
-            <div>
-                <h3>Buy or adopt</h3>
-                <p>How to know</p>
-                <p>Questions and answers</p>
-                <p>Whats best</p>
-                <p>FAQS</p>
+            <div id="pick_animal">
+                <h1>Welcome, what are you looking for?</h1>
+                <div>
+                    <div id="dogs">
+                        <img src="Images/dog.png" alt="dog-img">
+                        <p>Dogs</p>
+                    </div>
+                    <div id="cats">
+                        <img src="Images/cat-animal.png" alt="cat-img">
+                        <p>Cats</p>
+                    </div>
+                    <div id="both">
+                        <img src="Images/pets.png" alt="animal-img">
+                        <p>Dogs & Cats</p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h3>About cats</h3>
-                <p>Info</p>
-                <p>Best for you</p>
-                <p>Pros and cons</p>
-                <p>CATS ARE BEST!!!</p>
+        </main>
+        <footer>
+            <div id="media_logos"></div>
+            <div id="footer_info">
+                <div>
+                    <h3>About us</h3>
+                    <p>Contact us</p>
+                    <p>See our story</p>
+                    <p>Rate us</p>
+                    <p>Buy from us</p>
+                </div>
+                <div>
+                    <h3>Buy or adopt</h3>
+                    <p>How to know</p>
+                    <p>Questions and answers</p>
+                    <p>Whats best</p>
+                    <p>FAQS</p>
+                </div>
+                <div>
+                    <h3>About cats</h3>
+                    <p>Info</p>
+                    <p>Best for you</p>
+                    <p>Pros and cons</p>
+                    <p>CATS ARE BEST!!!</p>
+                </div>
+                <div>
+                    <h3>About dogs</h3>
+                    <p>Info</p>
+                    <p>Best for you</p>
+                    <p>Pros and cons</p>
+                    <p>We sell your informatin</p>
+                </div>
             </div>
-            <div>
-                <h3>About dogs</h3>
-                <p>Info</p>
-                <p>Best for you</p>
-                <p>Pros and cons</p>
-                <p>We sell your informatin</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script src="Client.js"></script>
     <script src="FrontendClass.js"></script>
