@@ -1,6 +1,6 @@
 #navigation_container {
     position: fixed;
-    
+
     top: 0;
     left: 0;
     right: 0;
@@ -12,7 +12,7 @@
     justify-content: space-between;
 
     padding: 0px 150px;
-    
+
     border-bottom: 1px solid var(--accent-color);
 }
 
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.navigation_button_container button{
+.navigation_button_container button {
     height: 100%;
     display: flex;
     align-items: center;
@@ -36,7 +36,7 @@
     font-size: var(--M-font-size);
 }
 
-.navigation_button_container button:hover{
+.navigation_button_container button:hover {
     text-decoration: underline;
     color: var(--accent-color);
     cursor: pointer;
@@ -51,5 +51,3 @@
     height: 100%;
     width: 10px;
 }
-
-
