@@ -14,12 +14,32 @@
     padding: 0px 150px;
     
     border-bottom: 1px solid var(--accent-color);
-    background-color: var(--background-color);
 }
 
 .navigation_button_container {
     display: flex;
     gap: calc(var(--XXL-spacing) * 2);
+    align-items: center;
+}
+
+.navigation_button_container button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-background-color);
+    border: 0;
+    border-radius: 10px;
+
+    gap: var(--L-spacing);
+
+    font-size: var(--M-font-size);
+}
+
+.navigation_button_container button:hover{
+    text-decoration: underline;
+    color: var(--accent-color);
+    cursor: pointer;
 }
 
 #navigation_logo {
@@ -31,4 +51,5 @@
     height: 100%;
     width: 10px;
 }
+
 
