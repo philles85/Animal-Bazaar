@@ -1,5 +1,8 @@
 body {
     margin: 0;
+    background-image: url("../Images/dog_and_cat_lookiing_4k_hd-HD.png");
+    background-size: contain;
+
 }
 
 .cursor_pointer {
@@ -25,4 +28,9 @@ body {
     --secondary-accent-color: #00BCD4;
     --white-background-color: #FFFFFF;
 
+}
+
+
+.hide {
+    display: none !important;
 }
