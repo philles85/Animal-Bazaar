@@ -14,8 +14,8 @@ function handler(request) {
 
     if(url.pathname == "/") {
         return serveFile(request, "../Frontend/Webapplication.html")
-    } else if(url.pathname.startsWith("/static")) {
-        return serveDir(request, { fsRoot: "../Frontend", urlRoot: "static" })
+    } else if(url.pathname.startsWith("/assets")) {
+        return serveDir(request, { fsRoot: "../Frontend", urlRoot: "assets" })
     }
     return new Response(JSON.stringify({error: "Internal server issue"}), { status: 500, headers: headersCORS})
 
