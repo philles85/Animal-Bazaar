@@ -57,7 +57,6 @@
 
 #register_container_popup {
 
-
     display: flex;
 
     flex-direction: column;
@@ -71,13 +70,14 @@
     border-radius: 15px;
     border-top: 5px solid var(--accent-color);
 
+    box-sizing: content-box;
 
 }
 
 .popup {
     position: fixed;
 
-    top: 35%;
+    top: 40%;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -88,4 +88,22 @@
     width: 100%;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.popup_input_field_p {
+    margin: 15px 0px 5px 0px;
+}
+
+.popup_input_field__parent_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: var(--XL-spacing);
+    box-sizing: border-box;
+}
+
+.popup_input_field_container {
+    width: 100%;
 }
