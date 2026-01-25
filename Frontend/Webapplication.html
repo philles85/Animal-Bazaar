@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/homepage.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/root.css">
+    <link rel="stylesheet" href="CSS/petssalepage.css">
 </head>
 
 <body>
@@ -29,7 +30,6 @@
         </nav>
     </header>
     <div id="homepage">
-
         <div class="popup" id="register_container_popup">
             <div>
                 <p>Create Account</p>
@@ -79,7 +79,17 @@
             </div>
         </main>
         <footer>
-            <div id="media_logos"></div>
+            <div id="media_bar">
+                <h1>Follow us!</h1>
+                <div id="border_line"></div>
+                <div id="media_logos">
+                    <img src="Images/social-media.png" alt="Tiktok logo">
+                    <img src="Images/instagram.png" alt="Instagram logo">
+                    <img src="Images/facebook.png" alt="Facebook logo">
+                    <img src="Images/twitter.png" alt="Twitter logo">
+                    <img src="Images/discord.png" alt="Discord logo">
+                </div>
+            </div>
             <div id="footer_info">
                 <div>
                     <h3>About us</h3>
@@ -111,6 +121,39 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <div id="pet_sales">
+        <main>
+            <div id="filter_function">
+                <h1>Cats</h1>
+                <div id="breeds" class="drop_down_pets">
+                    <p>Breeds</p>
+                    <div id="drop_down_breeds">
+                        <p>Show all</p>
+                        <img src="Images/arrow-down.svg">
+                    </div>
+                </div>
+                <div id="sort_by" class="drop_down_pets">
+                    <p>Sort by</p>
+                    <div id="drop_down_sort_by">
+                        <p>Show all</p>
+                        <img src="Images/arrow-down.svg">
+                    </div>
+                </div>
+            </div>
+            <div id="products_info">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </main>
     </div>
 
     <script src="Client.js"></script>
