@@ -1,16 +1,42 @@
 footer {
     width: 100%;
-    height: 300px;
+    height: 450px;
     background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;
     margin-top: 450px;
 }
 
-#media_logos {
-    height: 50px;
+#media_bar {
+    height: 175px;
     width: 100%;
     background-color: rgb(91, 78, 78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--L-spacing);
+}
+
+#media_bar h1 {
+    margin: 0;
+    color: white;
+}
+
+#border_line {
+    border: 2px solid green;
+    width: 450px;
+}
+
+#media_logos {
+    display: flex;
+    gap: var(--L-spacing);
+    justify-content: center;
+}
+
+
+#media_logos img {
+    height: 50px;
 }
 
 #footer_info {
