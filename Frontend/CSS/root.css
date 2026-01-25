@@ -19,9 +19,14 @@ body {
     --XL-spacing: 24px;
     --XXL-spacing: 28px;
 
+    
+
     --S-font-size: 12px;
     --M-font-size: 16px;
     --L-font-size: 20px;
+    --XL-font-size: 24px;
+    --XXL-font-size: 28px;
+    --XXXL-font-size: 32px;
 
     --accent-color: #ebebeb;
     --background-color: #FFF5E6;

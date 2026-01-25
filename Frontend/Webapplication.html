@@ -28,34 +28,39 @@
             </div>
         </nav>
     </header>
-    <div id="homepage">
 
-        <div class="popup" id="register_container_popup">
-            <div>
-                <p>Create Account</p>
+    <div class="popup" id="register_container_popup">
+            <div id="image_div_register_popup">
+                
             </div>
+
             <div class="popup_input_field__parent_container">
+                <div>
+                    <p id="create_account_text">Create an account</p>
+                </div>
                 <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Username</p>
+                    <p class="popup_input_field_p">Username*</p>
                     <input class="popup_input_field" id="username_input" type="text">
                 </div>
                 <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Email Address</p>
+                    <p class="popup_input_field_p">Email Address*</p>
                     <input class="popup_input_field" id="email_input" type="text">
                 </div>
                 <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Password</p>
+                    <p class="popup_input_field_p">Password*</p>
                     <input class="popup_input_field" id="password_input" type="password">
                 </div>
                 <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Confirm Password</p>
+                    <p class="popup_input_field_p">Confirm Password*</p>
                     <input class="popup_input_field" id="confirm_password_input" type="password">
                 </div>
+                    <button id="create_account_button">Create Account</button>
+                    <p class="agreeing_to_terms">By clicking the "Create Account" button, you are signing up and therefore agreeing to the Animal Bazaar's <span class="terms_of_use">Terms of Use</span> and <span class="privacy_policy">Privacy Policy.</span></p>
             </div>
-            <div><button id="create_account_button">Create Account</button></div>
+            
         </div>
 
-
+    <div id="homepage">
         <main>
             <div id="search_animal">
                 <input type="text" placeholder="Search dog, cats etc.">

@@ -56,54 +56,109 @@
 /* Register Popup */
 
 #register_container_popup {
-
     display: flex;
 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    width: 400px;
+    width: clamp(1000px, 80vw, 1800px);
+    height: clamp(600px, 80vh, 1000px);
 
     background-color: rgb(170, 170, 170);
+    overflow: hidden;
+}
 
-    border-radius: 15px;
-    border-top: 5px solid var(--accent-color);
+#image_div_register_popup {
+    background:
+    linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(0, 128, 0, 0.4)
+    ),
+    url("../Images/RegisterPopupImage.jpg");
 
-    box-sizing: content-box;
-
+    background-position: center;
+    background-size: cover;
+    width: 60%;
 }
 
 .popup {
     position: fixed;
 
-    top: 40%;
+    top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
 }
 
 .popup_input_field {
-    height: 30px;
+    height: auto;
+    padding: 15px 0px;
     width: 100%;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 .popup_input_field_p {
-    margin: 15px 0px 5px 0px;
+    margin: 15px 0px 10px 0px;
+    color: var(--secondary-color);
 }
 
 .popup_input_field__parent_container {
     display: flex;
     flex-direction: column;
+    gap: clamp(12px, 2vh, 24px);
+    padding: clamp(24px, 3vw, 48px);
+
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: var(--XL-spacing);
-    box-sizing: border-box;
+    overflow-y: auto;
+
+    background-color: #f6faf6;
 }
 
 .popup_input_field_container {
     width: 100%;
+    height: auto;
+}
+
+#create_account_text {
+    font-size: var(--XXXL-font-size);
+    font-weight: 500;
+    text-shadow: 0px 0px 1px;
+    text-align: center;
+}
+
+#create_account_button{
+    width: 100%;
+    height: auto;
+    padding: 18px 0px;
+    border-radius: 40px;
+    font-size: var(--L-font-size);
+    border: 0;
+    color: #f6faf6;
+    background-color: rgb(66, 121, 249);
+}
+
+#create_account_button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.agreeing_to_terms {
+    text-align: center;
+    font-size: var(--M-font-size);
+}
+
+.privacy_policy {
+    text-decoration: underline;
+}
+
+.terms_of_use {
+    text-decoration: underline;
+}
+
+.privacy_policy:hover {
+    cursor: pointer;
+    color: rgb(66, 121, 249);
+}
+
+.terms_of_use:hover {
+    cursor: pointer;
+    color: rgb(66, 121, 249);
 }
