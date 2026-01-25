@@ -32,6 +32,7 @@ main {
     align-items: center;
     gap: var(--S-spacing);
     cursor: pointer;
+    background-color: white;
 }
 
 #pick_animal div div img {
