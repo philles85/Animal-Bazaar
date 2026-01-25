@@ -30,35 +30,37 @@
     </header>
 
     <div class="popup" id="register_container_popup">
-            <div id="image_div_register_popup">
-                
-            </div>
+        <div id="image_div_register_popup">
 
-            <div class="popup_input_field__parent_container">
-                <div>
-                    <p id="create_account_text">Create an account</p>
-                </div>
-                <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Username*</p>
-                    <input class="popup_input_field" id="username_input" type="text">
-                </div>
-                <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Email Address*</p>
-                    <input class="popup_input_field" id="email_input" type="text">
-                </div>
-                <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Password*</p>
-                    <input class="popup_input_field" id="password_input" type="password">
-                </div>
-                <div class="popup_input_field_container">
-                    <p class="popup_input_field_p">Confirm Password*</p>
-                    <input class="popup_input_field" id="confirm_password_input" type="password">
-                </div>
-                    <button id="create_account_button">Create Account</button>
-                    <p class="agreeing_to_terms">By clicking the "Create Account" button, you are signing up and therefore agreeing to the Animal Bazaar's <span class="terms_of_use">Terms of Use</span> and <span class="privacy_policy">Privacy Policy.</span></p>
-            </div>
-            
         </div>
+
+        <div class="popup_input_field__parent_container">
+            <div>
+                <p id="create_account_text">Create an account</p>
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Username*</p>
+                <input class="popup_input_field" id="username_input" type="text">
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Email Address*</p>
+                <input class="popup_input_field" id="email_input" type="text">
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Password*</p>
+                <input class="popup_input_field" id="password_input" type="password">
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Confirm Password*</p>
+                <input class="popup_input_field" id="confirm_password_input" type="password">
+            </div>
+            <button id="create_account_button">Create Account</button>
+            <p class="agreeing_to_terms">By clicking the "Create Account" button, you are signing up and therefore
+                agreeing to the Animal Bazaar's <span class="terms_of_use">Terms of Use</span> and <span
+                    class="privacy_policy">Privacy Policy.</span></p>
+        </div>
+
+    </div>
 
     <div id="homepage">
         <main>
@@ -84,7 +86,17 @@
             </div>
         </main>
         <footer>
-            <div id="media_logos"></div>
+            <div id="media_bar">
+                <h1>Follow us!</h1>
+                <div id="border_line"></div>
+                <div id="media_logos">
+                    <img src="Images/social-media.png" alt="Tiktok logo">
+                    <img src="Images/instagram.png" alt="Instagram logo">
+                    <img src="Images/facebook.png" alt="Facebook logo">
+                    <img src="Images/twitter.png" alt="Twitter logo">
+                    <img src="Images/discord.png" alt="Discord logo">
+                </div>
+            </div>
             <div id="footer_info">
                 <div>
                     <h3>About us</h3>
@@ -117,6 +129,40 @@
             </div>
         </footer>
     </div>
+
+    <div id="pet_sales">
+        <main>
+            <div id="filter_function">
+                <h1>Cats</h1>
+                <div id="breeds" class="drop_down_pets">
+                    <p>Breeds</p>
+                    <div id="drop_down_breeds">
+                        <p>Show all</p>
+                        <img src="Images/arrow-down.svg">
+                    </div>
+                </div>
+                <div id="sort_by" class="drop_down_pets">
+                    <p>Sort by</p>
+                    <div id="drop_down_sort_by">
+                        <p>Show all</p>
+                        <img src="Images/arrow-down.svg">
+                    </div>
+                </div>
+            </div>
+            <div id="products_info">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </main>
+    </div>
+
 
     <script src="Client.js"></script>
     <script src="FrontendClass.js"></script>
