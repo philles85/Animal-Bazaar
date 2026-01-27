@@ -10,3 +10,9 @@ function change_page(page) {
         }
     }
 }
+
+function change_visiblity(element) {
+    if(element.classlist.contains("hide")) {
+        element.classlist.remove("hide")
+    }
+}
