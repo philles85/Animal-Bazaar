@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/homepage.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/root.css">
+    <link rel="stylesheet" href="CSS/petssalepage.css">
 </head>
 
 <body>
@@ -29,9 +30,9 @@
         </nav>
     </header>
 
-    <div class="popup" id="register_container_popup">
+    <div class="popup hide" id="register_container_popup">
         <div id="image_div_register_popup">
-
+            
         </div>
 
         <div class="popup_input_field__parent_container">
@@ -62,7 +63,7 @@
 
     </div>
 
-    <div id="homepage">
+    <div id="homepage" class="hide">
         <main>
             <div id="search_animal">
                 <input type="text" placeholder="Search dog, cats etc.">
@@ -130,37 +131,46 @@
         </footer>
     </div>
 
-    <div id="pet_sales" class="hide">
-        <main>
-            <div id="filter_function">
-                <h1>Cats</h1>
-                <div id="breeds" class="drop_down_pets">
-                    <p>Breeds</p>
-                    <div id="drop_down_breeds">
-                        <p>Show all</p>
-                        <img src="Images/arrow-down.svg">
-                    </div>
-                </div>
-                <div id="sort_by" class="drop_down_pets">
-                    <p>Sort by</p>
-                    <div id="drop_down_sort_by">
-                        <p>Show all</p>
-                        <img src="Images/arrow-down.svg">
-                    </div>
-                </div>
+    <div id="pet_sales">
+        <div id="filter_function">
+            <div class="filter_parts">
+                <p>Breed</p>
+                <img src="./Images/arrow-down.svg">
             </div>
-            <div id="products_info">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="filter_parts">
+                <p>Age</p>
+                <img src="./Images/arrow-down.svg">
             </div>
-        </main>
+            <div class="filter_parts">
+                <p>Gender</p>
+                <img src="./Images/arrow-down.svg">
+            </div>
+            <div class="filter_parts">
+                <p>Color</p>
+                <img src="./Images/arrow-down.svg">
+            </div>
+            <div class="filter_parts">
+                <p>Name</p>
+                <img src="./Images/arrow-down.svg">
+            </div>
+            <div class="filter_parts">
+                <p>Hasse</p>
+                <img src="./Images/arrow-down.svg">
+            </div>
+
+        </div>
+        <div id="products_info">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
     </div>
 
 
