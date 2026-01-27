@@ -81,7 +81,7 @@
 .popup {
     position: fixed;
 
-    top: 50%;
+    top: 45%;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -89,10 +89,11 @@
 
 .popup_input_field {
     height: auto;
-    padding: 15px 0px;
+    padding: 15px 15px;
     width: 100%;
     border: 1px solid black;
     border-radius: 20px;
+    font-size: var(--L-font-size);
 }
 
 .popup_input_field_p {
@@ -100,7 +101,7 @@
     color: var(--secondary-color);
 }
 
-.popup_input_field__parent_container {
+.popup_input_field_parent_container {
     display: flex;
     flex-direction: column;
     gap: clamp(12px, 2vh, 24px);
@@ -161,4 +162,37 @@
 .terms_of_use:hover {
     cursor: pointer;
     color: rgb(66, 121, 249);
+}
+
+#already_have_an_account_click {
+    color: rgb(66, 121, 249);
+    
+}
+
+#already_have_an_account_click:hover {
+    color: rgb(0, 38, 128);
+    cursor: pointer;
+}
+
+#already_have_an_account_text {
+    font-size: var(--L-font-size);
+    text-align: center;
+}
+
+#close_register_popup_button {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 30px;
+    height: 30px;
+
+    background: url(../Images/computer-icons-button-close-thumbnail.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#close_register_popup_button:hover {
+  cursor: pointer;
 }

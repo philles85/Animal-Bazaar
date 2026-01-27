@@ -6,13 +6,15 @@ function change_page(page) {
 
     for (let pages of all_pages) {
         if (page == pages) {
-            page.classlist.remove("hide");
+            page.classList.remove("hide");
         }
     }
 }
 
-function change_visiblity(element) {
-    if(element.classlist.contains("hide")) {
-        element.classlist.remove("hide")
+function change_visibility(element) {
+    if(element.classList.contains("hide")) {
+        element.classList.remove("hide")
+    } else {
+        element.classList.add("hide")
     }
 }
