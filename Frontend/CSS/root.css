@@ -3,7 +3,8 @@ body {
     background-image: url("../Images/dog_and_cat_lookiing_4k_hd-HD.png");
     background-size: cover;
     background-position: center;
-
+    display: flex;
+    justify-content: center;
 }
 
 .cursor_pointer {
@@ -19,7 +20,7 @@ body {
     --XL-spacing: 24px;
     --XXL-spacing: 28px;
 
-    
+
 
     --S-font-size: 12px;
     --M-font-size: 16px;
