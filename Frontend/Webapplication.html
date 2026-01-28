@@ -30,39 +30,57 @@
         </nav>
     </header>
 
-    <div class="popup hide" id="register_container_popup">
-        <div id="close_register_popup_button"></div>
-        <div id="image_div_register_popup">
-            
-        </div>
+    <div class="popup hide" id="login_container_popup">
+        <div class="close_popup" id="close_login_popup_button"></div>
+        <div class="popup_image" id="image_div_login_popup"></div>
 
         <div class="popup_input_field_parent_container">
-                <p id="create_account_text">Create an account</p>
+                <p class="popup_header">Log in to your account</p>
             <div class="popup_input_field_container">
                 <p class="popup_input_field_p">Username*</p>
-                <input class="popup_input_field" id="username_input" type="text">
-            </div>
-            <div class="popup_input_field_container">
-                <p class="popup_input_field_p">Email Address*</p>
-                <input class="popup_input_field" id="email_input" type="text">
+                <input class="popup_input_field" id="login_username_input" type="text">
             </div>
             <div class="popup_input_field_container">
                 <p class="popup_input_field_p">Password*</p>
-                <input class="popup_input_field" id="password_input" type="password">
+                <input class="popup_input_field" id="login_password_input" type="password">
+            </div>
+            <div class="popup_input_field_container">
+                <button class="popup_blue_button" id="login_button">Sign in</button>
+            </div>
+            <p class="click_me_text">Still require an account? <span class="click_me" id="still_require_an_account_click">Click here!</span></p>
+        </div>
+    </div>
+
+    <div class="popup hide" id="register_container_popup">
+        <div class="close_popup" id="close_register_popup_button"></div>
+        <div class="popup_image" id="image_div_register_popup"></div>
+
+        <div class="popup_input_field_parent_container">
+                <p class="popup_header">Create an account</p>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Username*</p>
+                <input class="popup_input_field" id="register_username_input" type="text">
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Email Address*</p>
+                <input class="popup_input_field" id="register_email_input" type="text">
+            </div>
+            <div class="popup_input_field_container">
+                <p class="popup_input_field_p">Password*</p>
+                <input class="popup_input_field" id="register_password_input" type="password">
             </div>
             <div class="popup_input_field_container">
                 <p class="popup_input_field_p">Confirm Password*</p>
-                <input class="popup_input_field" id="confirm_password_input" type="password">
+                <input class="popup_input_field" id="register_confirm_password_input" type="password">
             </div>
             <div class="popup_input_field_container">
-                <button id="create_account_button">Create Account</button>
+                <button class="popup_blue_button" id="create_account_button">Create Account</button>
             </div>
             <p class="agreeing_to_terms">By clicking the "Create Account" button, you are signing up and therefore
                 agreeing to the Animal Bazaar's <span class="terms_of_use">Terms of Use</span> and <span
                     class="privacy_policy">Privacy Policy.</span></p>
-            <p id="already_have_an_account_text">Already have an account? <span id="already_have_an_account_click">Click here!</span></p>
+            <p class="click_me_text">Already have an account? <span class="click_me" id="already_have_an_account_click">Click here!</span></p>
         </div>
-
     </div>
 
     <div id="homepage" class="hide">

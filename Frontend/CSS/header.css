@@ -55,17 +55,7 @@
 
 /* Register Popup */
 
-#register_container_popup {
-    display: flex;
-
-    width: clamp(1000px, 80vw, 1800px);
-    height: clamp(600px, 80vh, 1000px);
-
-    background-color: rgb(170, 170, 170);
-    overflow: hidden;
-}
-
-#image_div_register_popup {
+.popup_image {
     background:
     linear-gradient(
     rgba(255, 255, 255, 0.4),
@@ -81,10 +71,19 @@
 .popup {
     position: fixed;
 
-    top: 45%;
+    top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
+    display: flex;
+
+    width: clamp(1000px, 80vw, 1800px);
+    height: clamp(600px, 80vh, 1000px);
+
+    background-color: rgb(170, 170, 170);
+    overflow: hidden;
+
+    z-index: 100;
 }
 
 .popup_input_field {
@@ -111,6 +110,8 @@
     overflow-y: auto;
 
     background-color: #f6faf6;
+
+    width: 50%;
 }
 
 .popup_input_field_container {
@@ -118,14 +119,14 @@
     height: auto;
 }
 
-#create_account_text {
+.popup_header {
     font-size: var(--XXXL-font-size);
     font-weight: 500;
     text-shadow: 0px 0px 1px;
     text-align: center;
 }
 
-#create_account_button{
+.popup_blue_button{
     width: 100%;
     height: auto;
     padding: 18px 0px;
@@ -136,7 +137,7 @@
     background-color: rgb(66, 121, 249);
 }
 
-#create_account_button:hover{
+.popup_blue_button:hover{
     cursor: pointer;
     opacity: 0.5;
 }
@@ -164,22 +165,22 @@
     color: rgb(66, 121, 249);
 }
 
-#already_have_an_account_click {
+.click_me {
     color: rgb(66, 121, 249);
     
 }
 
-#already_have_an_account_click:hover {
+.click_me:hover {
     color: rgb(0, 38, 128);
     cursor: pointer;
 }
 
-#already_have_an_account_text {
+.click_me_text {
     font-size: var(--L-font-size);
     text-align: center;
 }
 
-#close_register_popup_button {
+.close_popup {
     position: absolute;
 
     top: 15px;
@@ -193,6 +194,6 @@
     background-size: cover;
 }
 
-#close_register_popup_button:hover {
+.close_popup:hover {
   cursor: pointer;
 }
