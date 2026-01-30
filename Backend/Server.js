@@ -31,11 +31,14 @@ console.log(people);
 
 
 
+const userSignUp = new URLPattern({ patname: "/signin/:username/" });
 
 
-function handler(request) {
+async function handler(request) {
+    const url = new URL(request.url);
 
-    const url = new URL(request.url)
+    const match_signin = userSignUp.exec(url);
+
 
     const headersCORS = new Headers()
     headersCORS.set("Access-Control-Allow-Origin", "*");
@@ -50,6 +53,19 @@ function handler(request) {
     } else if (url.pathname.startsWith("/assets")) {
         return serveDir(request, { fsRoot: "../Frontend", urlRoot: "assets" })
     }
+
+
+
+
+    if (match_signin) {
+        if (request.method == "POST") {
+
+        }
+    }
+
+
+
+
     return new Response(JSON.stringify({ error: "Internal server issue" }), { status: 500, headers: headersCORS })
 
 }
