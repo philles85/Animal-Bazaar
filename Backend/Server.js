@@ -1,4 +1,37 @@
-import {serveFile, serveDir} from "jsr:@std/http/file-server"
+import { serveFile, serveDir } from "jsr:@std/http/file-server"
+import { DatabaseSync } from "node:sqlite";
+
+const userDB = new DatabaseSync("user_data.db");
+
+// userDB.exec(
+//     `
+//         CREATE TABLE users(
+//             id INTEGER PRIMARY KEY AUTOINCREMENT,
+//             username TEXT,
+//             email TEXT,
+//             password TEXT
+//         ) 
+//     `
+// );
+
+
+
+// userDB.prepare(
+//     `
+//         INSERT INTO users(username, email, password) VALUES (?, ?, ?);
+
+//     `,
+// ).run("Rubba", "Rubba@alhasi", "Rubbabög");
+
+
+
+const people = userDB.prepare("SELECT id, username, email, password FROM users").all();
+
+console.log(people);
+
+
+
+
 
 function handler(request) {
 
@@ -12,12 +45,12 @@ function handler(request) {
         return new Response(null, { status: 204, headers: headersCORS })
     }
 
-    if(url.pathname == "/") {
+    if (url.pathname == "/") {
         return serveFile(request, "../Frontend/Webapplication.html")
-    } else if(url.pathname.startsWith("/assets")) {
+    } else if (url.pathname.startsWith("/assets")) {
         return serveDir(request, { fsRoot: "../Frontend", urlRoot: "assets" })
     }
-    return new Response(JSON.stringify({error: "Internal server issue"}), { status: 500, headers: headersCORS})
+    return new Response(JSON.stringify({ error: "Internal server issue" }), { status: 500, headers: headersCORS })
 
 }
 
