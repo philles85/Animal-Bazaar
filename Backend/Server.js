@@ -30,13 +30,9 @@ console.log(people);
 
 
 
-const userSignUp = new URLPattern({ patname: "/signin/:username/" });
-
 
 async function handler(request) {
     const url = new URL(request.url);
-
-    const match_signin = userSignUp.exec(url);
 
 
     const headersCORS = new Headers()
@@ -56,9 +52,18 @@ async function handler(request) {
 
 
 
-    if (match_signin) {
+    if (url.pathname == "/register") {
         if (request.method == "POST") {
-
+            let data = await request.json();
+            let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
+            let check_faults = [object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
+            if (check_faults.every(true)) {
+                //userDB.prepare(`INSERT INTO(username, email, password) VALUES(?, ?, ?);`).run(object_data.username, object_data.email, object_data.password);
+                return new Response(JSON.stringify("Registerd succesfully!"), { status: 201, headers: headersCORS })
+            } else {
+                let fault_messages = check_faults.filter(fault => fault != true);
+                return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
+            }
         }
     }
 
