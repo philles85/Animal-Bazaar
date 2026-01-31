@@ -3,17 +3,16 @@ import { DatabaseSync } from "node:sqlite";
 
 const userDB = new DatabaseSync("user_data.db");
 
-// userDB.exec(
-//     `
-//         CREATE TABLE users(
-//             id INTEGER PRIMARY KEY AUTOINCREMENT,
-//             username TEXT,
-//             email TEXT,
-//             password TEXT
-//         ) 
-//     `
-// );
-
+userDB.exec(
+    `
+         CREATE TABLE IF NOT EXISTS users(
+             id INTEGER PRIMARY KEY AUTOINCREMENT,
+             username TEXT,
+             email TEXT,
+             password TEXT
+         ) 
+     `
+);
 
 
 // userDB.prepare(
