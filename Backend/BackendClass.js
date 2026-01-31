@@ -1,10 +1,27 @@
-class Persons {
+import { DatabaseSync } from "node:sqlite";
+const userDB = new DatabaseSync("user_data.db");
+
+export class Persons {
+
+    // Testa utan metod sen och ha bara static
+    static all_users() {
+        return userDB.prepare("SELECT id, username, email, password FROM users").all();
+    }
 
     constructor(username, email, password, confirm_password) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.confirm_password = confirm_password;
+    }
+
+    check_repeated_username() {
+        for (let user of Persons.all_users()) {
+            if (user.username == this.username) {
+                return "User already exists!";
+            }
+        }
+        return true;
     }
 
     check_user_name() {
@@ -26,12 +43,11 @@ class Persons {
     check_password() {
         for (let sign of ["%", "&", "?", "#", "!", "€"]) {
             // GÖR toUpperCase() kontroll också sen!!
-            if (!this.password.includes(sign)) {
-                return "Password doesent include special sign!"
-            } else {
+            if (this.password.includes(sign)) {
                 return true;
             }
         }
+        return "Password doesent include special sign!"
     }
 
     check_confirm_password() {

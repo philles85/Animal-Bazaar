@@ -37,12 +37,14 @@ close_login_button.addEventListener("click", () => {
 })
 
 create_account_button.addEventListener("click", async function () {
-    const new_account_reponse = await fetch("htttp://localhost:8000/register", {
+    const new_account_reponse = await fetch("http://localhost:9999/register", {
         method: "POST",
-        headers: { "Content_type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: register_username_input.value, email: register_email_input.value, password: register_password_input.value, confirm_password: register_confirm_password_input.value })
     });
 
     const resourceBody = await new_account_reponse.json();
+
+    console.log(resourceBody);
 
 })

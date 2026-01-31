@@ -1,5 +1,6 @@
 import { serveFile, serveDir } from "jsr:@std/http/file-server"
 import { DatabaseSync } from "node:sqlite";
+import { Persons } from "./BackendClass.js";
 
 const userDB = new DatabaseSync("user_data.db");
 
@@ -14,21 +15,9 @@ userDB.exec(
      `
 );
 
-
-// userDB.prepare(
-//     `
-//         INSERT INTO users(username, email, password) VALUES (?, ?, ?);
-
-//     `,
-// ).run("Rubba", "Rubba@alhasi", "Rubbabög");
-
-
-
-const people = userDB.prepare("SELECT id, username, email, password FROM users").all();
-
-console.log(people);
-
-
+// FÖR ATT RENSA TABELLEN
+// userDB.exec("DELETE FROM users");
+// userDB.exec("DELETE FROM sqlite_sequence WHERE name='users'")
 
 
 async function handler(request) {
@@ -54,25 +43,29 @@ async function handler(request) {
 
     if (url.pathname == "/register") {
         if (request.method == "POST") {
-            let data = await request.json();
-            let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
-            let check_faults = [object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
-            if (check_faults.every(true)) {
-                //userDB.prepare(`INSERT INTO(username, email, password) VALUES(?, ?, ?);`).run(object_data.username, object_data.email, object_data.password);
-                return new Response(JSON.stringify("Registerd succesfully!"), { status: 201, headers: headersCORS })
-            } else {
-                let fault_messages = check_faults.filter(fault => fault != true);
-                return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
+            try {
+                let data = await request.json();
+                let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
+                let check_faults = [object_data.check_repeated_username(), object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
+                if (check_faults.every(fault => fault == true)) {
+                    userDB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
+                    console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                    return new Response(JSON.stringify("Registerd succesfully!"), { status: 201, headers: headersCORS })
+                } else {
+                    let fault_messages = check_faults.filter(fault => fault != true);
+                    console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                    return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
+                }
+            } catch (e) {
+                console.error("SERVER ERROR:", e);
             }
+
         }
     }
-
-
-
 
     return new Response(JSON.stringify({ error: "Internal server issue" }), { status: 500, headers: headersCORS })
 
 }
 
 
-Deno.serve(handler);
+Deno.serve({ port: 9999 }, handler);
