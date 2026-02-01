@@ -1,12 +1,13 @@
 let register_popup = document.querySelector("#register_container_popup")
 
-
+// Fixa en change_page funktion som funkar
 function change_page(page) {
-    let all_pages = [start_page, pet_page, check_out_page, account_page, register_popup];
+    page.classList.remove("hide");
+    let all_pages = [start_page, pet_page, check_out_page, account_page, register_popup, dogs_page];
 
     for (let pages of all_pages) {
-        if (page == pages) {
-            page.classList.remove("hide");
+        if (page != pages) {
+            page.classList.add("hide");
         }
     }
 }

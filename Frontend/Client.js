@@ -1,5 +1,7 @@
 let active_user = null;
 
+let start_page = document.querySelector("#homepage")
+
 const log_in = document.querySelector("#log_in_button");
 const register = document.querySelector("#register_button");
 
@@ -21,6 +23,15 @@ const login_username_input = document.querySelector("#login_username_input");
 const login_password_input = document.querySelector("#login_password_input");
 const login_button = document.querySelector("#login_button");
 const login_fault_message = document.querySelector("#login_fault_message");
+
+const pick_dog_button = document.querySelector("#dogs");
+let dogs_page = document.querySelector("#pet_sales_dogs");
+
+
+pick_dog_button.addEventListener("click", () => {
+    change_page(dogs_page);
+})
+
 
 register.addEventListener("click", () => {
     if (!login_container.classList.contains('hide')) {
