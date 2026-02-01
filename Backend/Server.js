@@ -56,11 +56,29 @@ async function handler(request) {
                     console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
                     return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
                 }
-            } catch (e) {
-                console.error("SERVER ERROR:", e);
+            } catch (error) {
+                console.error("REGISTER ERROR:", error);
             }
 
         }
+    }
+
+    if (url.pathname == "/login") {
+        if (request.method == "POST") {
+            try {
+                let data = await request.json()
+                let userData =  userDB.prepare("SELECT id, username, email, password FROM users").all();
+                let correctUser = userData.find(user => user.username === data.username && user.password === data.password)
+                if (correctUser) {
+                    return new Response(JSON.stringify({username: data.username}), {status: 202, headers: headersCORS })
+                } else {
+                    return new Response(JSON.stringify("Error: Wrong username or password"), { status: 404, headers: headersCORS })
+                }
+            } catch (error) {
+                console.error("LOGIN ERROR:", error)
+            }
+        }
+       
     }
 
     return new Response(JSON.stringify({ error: "Internal server issue" }), { status: 500, headers: headersCORS })
