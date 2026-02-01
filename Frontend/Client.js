@@ -1,3 +1,5 @@
+const active_user = null;
+
 const log_in = document.querySelector("#log_in_button");
 const register = document.querySelector("#register_button");
 
@@ -13,6 +15,11 @@ const register_username_input = document.querySelector("#register_username_input
 const register_email_input = document.querySelector("#register_email_input")
 const register_password_input = document.querySelector("#register_password_input")
 const register_confirm_password_input = document.querySelector("#register_confirm_password_input")
+
+const login_username_input = document.querySelector("#login_username_input");
+const login_password_input = document.querySelector("#login_password_input");
+const login_button = document.querySelector("#login_button");
+const login_fault_message = document.querySelector("#login_fault_message");
 
 register.addEventListener("click", () => {
     if (!login_container.classList.contains('hide')) {
@@ -48,3 +55,23 @@ create_account_button.addEventListener("click", async function () {
     console.log(resourceBody);
 
 })
+
+
+login_button.addEventListener("click", async function () {
+    const user_login_response = await fetch("http://localhost:9999/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: login_username_input, password: login_password_input })
+    });
+
+    const resourceBody = await user_login_response.json();
+
+    if (resourceBody.status == 202) {
+        login_fault_message.textContent = "Login succesfull!"
+        active_user = resourceBody.username;
+    } else {
+        login_fault_message.textContent = "Wrong username or password!"
+    }
+
+
+});
