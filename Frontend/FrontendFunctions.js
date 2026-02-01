@@ -12,9 +12,21 @@ function change_page(page) {
 }
 
 function change_visibility(element) {
-    if(element.classList.contains("hide")) {
+    if (element.classList.contains("hide")) {
         element.classList.remove("hide")
     } else {
         element.classList.add("hide")
     }
+}
+
+
+function display_fault_messages(element, message) {
+    account_fault_message.classList.remove("hide");
+    element.textContent = message;
+
+    setTimeout(() => {
+        account_fault_message.classList.add("hide");
+    }, 3000)
+
+
 }
