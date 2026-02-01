@@ -20,12 +20,13 @@ function change_visibility(element) {
 }
 
 
+// Fixa en popup som display istället
 function display_fault_messages(element, message) {
-    account_fault_message.classList.remove("hide");
+    element.classList.remove("hide");
     element.textContent = message;
 
     setTimeout(() => {
-        account_fault_message.classList.add("hide");
+        element.classList.add("hide");
     }, 3000)
 
 

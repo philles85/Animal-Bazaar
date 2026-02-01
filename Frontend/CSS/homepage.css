@@ -55,6 +55,10 @@ main {
 }
 
 
-.account_fault_message {
+#login_fault_message {
+    color: red;
+}
+
+#register_fault_message {
     color: red;
 }
