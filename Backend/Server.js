@@ -50,7 +50,7 @@ async function handler(request) {
                 if (check_faults.every(fault => fault == true)) {
                     userDB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
                     console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
-                    return new Response(JSON.stringify("Registerd succesfully!"), { status: 201, headers: headersCORS })
+                    return new Response(JSON.stringify({ username: data.username }), { status: 201, headers: headersCORS })
                 } else {
                     let fault_messages = check_faults.filter(fault => fault != true);
                     console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());

@@ -52,7 +52,18 @@ create_account_button.addEventListener("click", async function () {
 
     const resourceBody = await new_account_reponse.json();
 
-    console.log(resourceBody);
+
+    if (new_account_reponse.status == 201) {
+        login_fault_message.textContent = "Registered succesfully!"
+
+        active_user = resourceBody.username;
+
+        setTimeout(() => {
+            change_visibility(register_container)
+        }, 3000)
+    } else {
+        login_fault_message.textContent = "Not following registering rules"
+    }
 
 })
 
@@ -68,8 +79,11 @@ login_button.addEventListener("click", async function () {
 
     if (user_login_response.status == 202) {
         login_fault_message.textContent = "Login succesfull!"
-        console.log("Succes!")
         active_user = resourceBody.username;
+
+        setTimeout(() => {
+            change_visibility(login_container)
+        }, 3000)
     } else {
         login_fault_message.textContent = "Wrong username or password!"
     }
