@@ -1,4 +1,4 @@
-const active_user = null;
+let active_user = null;
 
 const log_in = document.querySelector("#log_in_button");
 const register = document.querySelector("#register_button");
@@ -61,13 +61,14 @@ login_button.addEventListener("click", async function () {
     const user_login_response = await fetch("http://localhost:9999/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: login_username_input, password: login_password_input })
+        body: JSON.stringify({ username: login_username_input.value, password: login_password_input.value })
     });
 
     const resourceBody = await user_login_response.json();
 
-    if (resourceBody.status == 202) {
+    if (user_login_response.status == 202) {
         login_fault_message.textContent = "Login succesfull!"
+        console.log("Succes!")
         active_user = resourceBody.username;
     } else {
         login_fault_message.textContent = "Wrong username or password!"
