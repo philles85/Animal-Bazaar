@@ -79,6 +79,7 @@ create_account_button.addEventListener("click", async function () {
             change_visibility(register)
             change_visibility(log_out_button)
             change_visibility(username_nav_p)
+            username_nav_p.textContent = resourceBody.username
         }, 3000)
     } else {
         display_action_messages(resourceBody.fault_messages, "red");
