@@ -22,6 +22,10 @@ const login_password_input = document.querySelector("#login_password_input");
 const login_button = document.querySelector("#login_button");
 const login_fault_message = document.querySelector("#login_fault_message");
 
+const username_nav_p = document.querySelector("#username_nav_p")
+const log_out_button = document.querySelector("#log_out_button")
+
+
 register.addEventListener("click", () => {
     if (!login_container.classList.contains('hide')) {
         change_visibility(login_container)
@@ -61,6 +65,10 @@ create_account_button.addEventListener("click", async function () {
 
         setTimeout(() => {
             change_visibility(register_container)
+            change_visibility(log_in)
+            change_visibility(register)
+            change_visibility(log_out_button)
+            change_visibility(username_nav_p)
         }, 3000)
     } else {
         display_fault_messages(register_fault_message, resourceBody.fault_messages);
@@ -84,10 +92,27 @@ login_button.addEventListener("click", async function () {
 
         setTimeout(() => {
             change_visibility(login_container)
+            change_visibility(log_in)
+            change_visibility(register)
+            change_visibility(log_out_button)
+            change_visibility(username_nav_p)
+            username_nav_p.textContent = resourceBody.username
         }, 3000)
     } else {
         display_fault_messages(login_fault_message, "Wrong username or password!");
     }
 
+    
 
 });
+
+log_out_button.addEventListener("click", async function () {
+
+    active_user = null
+
+    change_visibility(log_in)
+    change_visibility(register)
+    change_visibility(log_out_button)
+    change_visibility(username_nav_p)
+
+})
