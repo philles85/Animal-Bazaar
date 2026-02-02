@@ -1,5 +1,7 @@
 let active_user = null;
 
+let start_page = document.querySelector("#homepage")
+
 const log_in = document.querySelector("#log_in_button");
 const register = document.querySelector("#register_button");
 
@@ -24,6 +26,13 @@ const login_fault_message = document.querySelector("#login_fault_message");
 
 const username_nav_p = document.querySelector("#username_nav_p")
 const log_out_button = document.querySelector("#log_out_button")
+const pick_dog_button = document.querySelector("#dogs");
+
+let dogs_page = document.querySelector("#pet_sales_dogs");
+
+pick_dog_button.addEventListener("click", () => {
+    change_page(dogs_page);
+})
 
 
 register.addEventListener("click", () => {
