@@ -1,6 +1,7 @@
 let active_user = null;
 
 let start_page = document.querySelector("#homepage")
+const action_message = document.querySelector("#action_message");
 
 const log_in = document.querySelector("#log_in_button");
 const register = document.querySelector("#register_button");
@@ -74,7 +75,7 @@ create_account_button.addEventListener("click", async function () {
             change_visibility(register_container)
         }, 3000)
     } else {
-        display_fault_messages(register_fault_message, resourceBody.fault_messages);
+        display_action_messages(resourceBody.fault_messages, "red");
     }
 
 })
@@ -97,7 +98,7 @@ login_button.addEventListener("click", async function () {
             change_visibility(login_container)
         }, 3000)
     } else {
-        display_fault_messages(login_fault_message, "Wrong username or password!");
+        display_action_messages("Wrong username or password!", "red");
     }
 
 
