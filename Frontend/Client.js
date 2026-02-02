@@ -69,7 +69,7 @@ create_account_button.addEventListener("click", async function () {
 
 
     if (new_account_reponse.status == 201) {
-        login_fault_message.textContent = "Registered succesfully!"
+        display_action_messages("Registered succesfully!", "green")
 
         active_user = resourceBody.username;
 
@@ -97,7 +97,7 @@ login_button.addEventListener("click", async function () {
     const resourceBody = await user_login_response.json();
 
     if (user_login_response.status == 202) {
-        login_fault_message.textContent = "Login succesfull!"
+        display_action_messages("Login succesfull!", "green")
         active_user = resourceBody.username;
 
         setTimeout(() => {
@@ -112,7 +112,7 @@ login_button.addEventListener("click", async function () {
         display_action_messages("Wrong username or password!", "red");
     }
 
-    
+
 
 });
 
