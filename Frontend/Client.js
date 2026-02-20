@@ -29,6 +29,9 @@ const username_nav_p = document.querySelector("#username_nav_p")
 const log_out_button = document.querySelector("#log_out_button")
 const pick_dog_button = document.querySelector("#dogs");
 
+const still_require_an_account_click = document.querySelector("#still_require_an_account_click");
+const already_have_an_account_click = document.querySelector("#already_have_an_account_click");
+
 let dogs_page = document.querySelector("#pet_sales_dogs");
 
 pick_dog_button.addEventListener("click", () => {
@@ -55,6 +58,16 @@ log_in.addEventListener("click", () => {
 })
 
 close_login_button.addEventListener("click", () => {
+    change_visibility(login_container)
+})
+
+still_require_an_account_click.addEventListener("click", () => {
+    change_visibility(login_container)
+    change_visibility(register_container)
+})
+
+already_have_an_account_click.addEventListener("click", () => {
+    change_visibility(register_container)
     change_visibility(login_container)
 })
 
@@ -127,3 +140,4 @@ log_out_button.addEventListener("click", async function () {
     change_visibility(username_nav_p)
 
 })
+
