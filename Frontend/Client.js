@@ -72,10 +72,10 @@ already_have_an_account_click.addEventListener("click", () => {
 })
 
 create_account_button.addEventListener("click", async function () {
-    const new_account_reponse = await fetch("http://localhost:9999/register", {
+    const new_account_reponse = await fetch("http://localhost:9999/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: register_username_input.value, email: register_email_input.value, password: register_password_input.value, confirm_password: register_confirm_password_input.value })
+        body: JSON.stringify({ username: register_username_input.value, email: register_email_input.value, password: register_password_input.value, confirm_password: register_confirm_password_input.value, CreateAccount: 1 })
     });
 
     const resourceBody = await new_account_reponse.json();
@@ -102,10 +102,10 @@ create_account_button.addEventListener("click", async function () {
 
 
 login_button.addEventListener("click", async function () {
-    const user_login_response = await fetch("http://localhost:9999/login", {
+    const user_login_response = await fetch("http://localhost:9999/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: login_username_input.value, password: login_password_input.value })
+        body: JSON.stringify({ username: login_username_input.value, password: login_password_input.value, LogIn: 1 })
     });
 
     const resourceBody = await user_login_response.json();

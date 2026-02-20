@@ -39,47 +39,46 @@ async function handler(request) {
     }
 
 
-
-
-    if (url.pathname == "/register") {
+    if (url.pathname == "/users") {
+        
         if (request.method == "POST") {
-            try {
-                let data = await request.json();
-                let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
-                let check_faults = [object_data.check_repeated_username(), object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
-                if (check_faults.every(fault => fault == true)) {
-                    userDB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
-                    console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
-                    return new Response(JSON.stringify({ username: data.username }), { status: 201, headers: headersCORS })
-                } else {
-                    let fault_messages = check_faults.filter(fault => fault != true);
-                    console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
-                    return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
-                }
-            } catch (error) {
-                console.error("REGISTER ERROR:", error);
-            }
+            let data = await request.json();
 
+            if(data.CreateAccount) {
+                try {
+                    let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
+                    let check_faults = [object_data.check_repeated_username(), object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
+                    if (check_faults.every(fault => fault == true)) {
+                        userDB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
+                        console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                        return new Response(JSON.stringify({ username: data.username }), { status: 201, headers: headersCORS })
+                    } else {
+                        let fault_messages = check_faults.filter(fault => fault != true);
+                        console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                        return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
+                    }
+                } catch (error) {
+                    console.error("REGISTER ERROR:", error);
+                }
+
+            }
+            
+            if(data.LogIn) {
+                try {
+                    let userData = userDB.prepare("SELECT id, username, email, password FROM users").all();
+                    let correctUser = userData.find(user => user.username === data.username && user.password === data.password)
+                    if (correctUser) {
+                        return new Response(JSON.stringify({ username: data.username }), { status: 202, headers: headersCORS })
+                    } else {
+                        return new Response(JSON.stringify("Error: Wrong username or password"), { status: 404, headers: headersCORS })
+                    }
+                } catch (error) {
+                    console.error("LOGIN ERROR:", error)
+                }
+            }
         }
     }
 
-    if (url.pathname == "/login") {
-        if (request.method == "POST") {
-            try {
-                let data = await request.json()
-                let userData = userDB.prepare("SELECT id, username, email, password FROM users").all();
-                let correctUser = userData.find(user => user.username === data.username && user.password === data.password)
-                if (correctUser) {
-                    return new Response(JSON.stringify({ username: data.username }), { status: 202, headers: headersCORS })
-                } else {
-                    return new Response(JSON.stringify("Error: Wrong username or password"), { status: 404, headers: headersCORS })
-                }
-            } catch (error) {
-                console.error("LOGIN ERROR:", error)
-            }
-        }
-
-    }
 
     return new Response(JSON.stringify({ error: "Internal server issue" }), { status: 500, headers: headersCORS })
 
