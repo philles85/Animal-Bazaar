@@ -2,9 +2,9 @@ import { serveFile, serveDir } from "jsr:@std/http/file-server"
 import { DatabaseSync } from "node:sqlite";
 import { Persons } from "./BackendClass.js";
 
-const userDB = new DatabaseSync("user_data.db");
+const DB = new DatabaseSync("user_data.db");
 
-userDB.exec(
+DB.exec(
     `
          CREATE TABLE IF NOT EXISTS users(
              id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -16,8 +16,8 @@ userDB.exec(
 );
 
 // FÖR ATT RENSA TABELLEN
-// userDB.exec("DELETE FROM users");
-// userDB.exec("DELETE FROM sqlite_sequence WHERE name='users'")
+// DB.exec("DELETE FROM users");
+// DB.exec("DELETE FROM sqlite_sequence WHERE name='users'")
 
 
 async function handler(request) {
@@ -49,12 +49,12 @@ async function handler(request) {
                     let object_data = new Persons(data.username, data.email, data.password, data.confirm_password);
                     let check_faults = [object_data.check_repeated_username(), object_data.check_user_name(), object_data.check_email(), object_data.check_password(), object_data.check_confirm_password()];
                     if (check_faults.every(fault => fault == true)) {
-                        userDB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
-                        console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                        DB.prepare(`INSERT INTO users(username, email, password) VALUES(?, ?, ?)`).run(object_data.username, object_data.email, object_data.password);
+                        
                         return new Response(JSON.stringify({ username: data.username }), { status: 201, headers: headersCORS })
                     } else {
                         let fault_messages = check_faults.filter(fault => fault != true);
-                        console.log(userDB.prepare("SELECT id, username, email, password FROM users").all());
+                        
                         return new Response(JSON.stringify({ fault_messages }), { status: 406, headers: headersCORS })
                     }
                 } catch (error) {
@@ -65,7 +65,7 @@ async function handler(request) {
             
             if(data.LogIn) {
                 try {
-                    let userData = userDB.prepare("SELECT id, username, email, password FROM users").all();
+                    let userData = DB.prepare("SELECT id, username, email, password FROM users").all();
                     let correctUser = userData.find(user => user.username === data.username && user.password === data.password)
                     if (correctUser) {
                         return new Response(JSON.stringify({ username: data.username }), { status: 202, headers: headersCORS })
